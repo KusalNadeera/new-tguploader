@@ -4,6 +4,7 @@ import time
 import random
 from firebase import firebase
 import os
+import requests
 from PIL import Image
 import markdown
 from telethon import events,TelegramClient
