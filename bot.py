@@ -814,8 +814,43 @@ async def id(event):
         if event.is_private and str(event.message.message) == "/id":
             await event.reply(f'**Your id :** `{event.sender_id}`')
 
+@bot.on(events.NewMessage(incoming=True))
+async def id(event):
+    global bot_on
+    global yes
+    if bot_on==True:
+        pass
+    else:
+        return
+    if yes == False and str(event.message.message) == "/id":
+        await event.reply(f"""
+        	⛔️ Access Denied ⛔️
 
+🙋‍♂️ Hey There [{event.sender.first_name}](tg://user?id={event.sender_id}), ☘️ I am The Telegraph Uploader BOT ☘️, You Must Join @SingleDevelopers Telegram Channel To Use This BOT. So, Please Join it & Try Again🤗. Thank You 🤝""",
+        buttons=[Button.url('</> SingleDevelopers',url='https://t.me/SingleDevelopers')])
+        return
+    
+   if str(event.message.message) == "txt":
+    m = await event.reply("🖊 Writing...")
+        body = {"text":f"{event.text}"}
+        req = requests.post('https://api.single-developers.software/write1', headers={'Content-Type': 'application/json'}, json=body)
+        pic = req.history[1].url
+        await bot.send_file(
+                photo=f"{pic}"
+        )
+   if event.repy_to and str(event.message.message) == "txt":
+    msg=await event.get_reply_message()
+    m = await event.reply("🖊 Writing...")
+        body = {"text":f"{msg}"}
+        req = requests.post('https://api.single-developers.software/write1', headers={'Content-Type': 'application/json'}, json=body)
+        pic = req.history[1].url
+        await bot.send_file(
+                photo=f"{pic}"
+        )
+        
+        await m.delete()
 
+        
 
 
 
