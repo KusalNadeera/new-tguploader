@@ -838,8 +838,8 @@ async def id(event):
         body = {"text":f"{mlh}"}
         req = requests.post('https://api.single-developers.software/write1', headers={'Content-Type': 'application/json'}, json=body)
         pic = req.history[1].url
-        await bot.send_file(
-                photo=f"{pic}"
+        await bot.send_file(event.chat_id,
+                file=f"{pic}"
         )
     if event.reply_to and str(event.message.message) == "txt":
         msg=await event.get_reply_message()
