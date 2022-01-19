@@ -830,14 +830,14 @@ async def id(event):
         buttons=[Button.url('</> SingleDevelopers',url='https://t.me/SingleDevelopers')])
         return
     
-    if str(event.message.message) == "txt":
-        m = await event.reply("🖊 Writing...")
-        body = {"text":f"{(event.text).removeprefix("txt ")}"}
-        req = requests.post('https://api.single-developers.software/write1', headers={'Content-Type': 'application/json'}, json=body)
-        pic = req.history[1].url
-        await bot.send_file(
-                photo=f"{pic}"
-        )
+    #if str(event.message.message) == "txt":
+    #    m = await event.reply("🖊 Writing...")
+    #    body = {"text":f"{(event.text).removeprefix("txt ")}"}
+    #    req = requests.post('https://api.single-developers.software/write1', headers={'Content-Type': 'application/json'}, json=body)
+    #    pic = req.history[1].url
+    #    await bot.send_file(
+    #            photo=f"{pic}"
+    #    )
     if event.reply_to and str(event.message.message) == "txt":
         msg=await event.get_reply_message()
         m = await event.reply("🖊 Writing...")
