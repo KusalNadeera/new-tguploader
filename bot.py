@@ -831,7 +831,7 @@ async def id(event):
         buttons=[Button.url('</> SingleDevelopers',url='https://t.me/SingleDevelopers')])
         return
     
-    if str(event.message.message) == "txt":
+    if not event.reply_to and str(event.message.message) == "txt":
         m = await event.reply("🖊 Writing...")
         fff=event.text
         mlh=fff.removeprefix('txt ')
