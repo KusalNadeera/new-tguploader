@@ -863,14 +863,14 @@ async def id(event):
         buttons=[Button.url('</> SingleDevelopers',url='https://t.me/SingleDevelopers')])
         return
     m = await event.reply("🖊 Writing...")
-        fff=event.text
-        mlh=fff.removeprefix('txt ')
-        body = {"text":f"{mlh}"}
-        req = requests.post('https://api.single-developers.software/write1', headers={'Content-Type': 'application/json'}, json=body)
-        pic = req.history[1].url
-        await bot.send_file(event.chat_id,
-                file=f"{pic}"
-        )
+    fff=event.text
+    mlh=fff.removeprefix('txt ')
+    body = {"text":f"{mlh}"}
+    req = requests.post('https://api.single-developers.software/write1', headers={'Content-Type': 'application/json'}, json=body)
+    pic = req.history[1].url
+    await bot.send_file(event.chat_id,
+            file=f"{pic}"
+    )
 
 
 
