@@ -831,16 +831,8 @@ async def id(event):
         buttons=[Button.url('</> SingleDevelopers',url='https://t.me/SingleDevelopers')])
         return
     
-    if not event.reply_to and str(event.message.message) in "^txt ":
-        m = await event.reply("🖊 Writing...")
-        fff=event.text
-        mlh=fff.removeprefix('txt ')
-        body = {"text":f"{mlh}"}
-        req = requests.post('https://api.single-developers.software/write1', headers={'Content-Type': 'application/json'}, json=body)
-        pic = req.history[1].url
-        await bot.send_file(event.chat_id,
-                file=f"{pic}"
-        )
+   
+        
     if event.reply_to and str(event.message.message) == "txt":
         msg=await event.get_reply_message()
         m = await event.reply("🖊 Writing...")
@@ -855,7 +847,30 @@ async def id(event):
 
         
 
+@bot.on(events.NewMessage(incoming=True,pattern="^txt "))
+async def id(event):
+    global bot_on
+    global yes
+    if bot_on==True:
+        pass
+    else:
+        return
+    if yes == False and str(event.message.message) == "/id":
+        await event.reply(f"""
+        	⛔️ Access Denied ⛔️
 
+🙋‍♂️ Hey There [{event.sender.first_name}](tg://user?id={event.sender_id}), ☘️ I am The Telegraph Uploader BOT ☘️, You Must Join @SingleDevelopers Telegram Channel To Use This BOT. So, Please Join it & Try Again🤗. Thank You 🤝""",
+        buttons=[Button.url('</> SingleDevelopers',url='https://t.me/SingleDevelopers')])
+        return
+    m = await event.reply("🖊 Writing...")
+        fff=event.text
+        mlh=fff.removeprefix('txt ')
+        body = {"text":f"{mlh}"}
+        req = requests.post('https://api.single-developers.software/write1', headers={'Content-Type': 'application/json'}, json=body)
+        pic = req.history[1].url
+        await bot.send_file(event.chat_id,
+                file=f"{pic}"
+        )
 
 
 
