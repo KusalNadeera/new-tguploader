@@ -1,4 +1,4 @@
 telethon
 Telegraph
 pillow
-https://github.com/ozgur/python-firebase.git
+git+https://github.com/ozgur/python-firebase
