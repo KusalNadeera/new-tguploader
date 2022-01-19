@@ -2,3 +2,4 @@ telethon
 Telegraph
 pillow
 git+https://github.com/ozgur/python-firebase
+markdown
