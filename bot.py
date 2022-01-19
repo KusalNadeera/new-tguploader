@@ -848,7 +848,7 @@ async def id(event):
         
 
 @bot.on(events.NewMessage(incoming=True,pattern="^txt "))
-async def id(event):
+async def fff(event):
     global bot_on
     global yes
     if bot_on==True:
