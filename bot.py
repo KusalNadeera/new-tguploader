@@ -871,6 +871,7 @@ async def id(event):
     await bot.send_file(event.chat_id,
             file=f"{pic}"
     )
+    m.delete()
 
 
 
