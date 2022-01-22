@@ -8,4 +8,3 @@ WORKDIR /Telegraph
 COPY bot.py /Telegraph/bot.py
 COPY config.py /Telegraph/config.py
 RUN python3 bot.py
-
