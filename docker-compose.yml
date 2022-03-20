@@ -1,6 +1,4 @@
 version: "3.9"
 services: 
 worker:
-build:
-  context: .
-  dockerfile: 
+build --file ./Dockerfile
