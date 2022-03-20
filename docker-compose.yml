@@ -2,5 +2,5 @@ version: "3.9"
 services: 
 worker: 
 build:
-context: .
-dockerfile: ./Dockerfile
+  context: .
+  dockerfile: ./Dockerfile
